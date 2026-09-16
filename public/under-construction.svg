@@ -1,0 +1,10 @@
+<svg width="700" height="480" viewBox="0 0 700 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="700" height="480" rx="24" fill="#FFF7ED"/>
+  <rect x="90" y="70" width="520" height="340" rx="30" fill="#FDF2F8" stroke="#F9A8D4" stroke-width="4"/>
+  <circle cx="350" cy="175" r="82" fill="#FDE68A"/>
+  <path d="M302 220L350 155L398 220" stroke="#C2410C" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M248 286H452" stroke="#F472B6" stroke-width="12" stroke-linecap="round"/>
+  <path d="M274 252H426" stroke="#F59E0B" stroke-width="14" stroke-linecap="round"/>
+  <path d="M214 332H486" stroke="#A855F7" stroke-width="12" stroke-linecap="round"/>
+  <text x="350" y="365" text-anchor="middle" font-size="42" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#7C2D12" letter-spacing="2">EN CONSTRUCCIÓN</text>
+</svg>

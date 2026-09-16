@@ -1,0 +1,54 @@
+.construction-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #fff7ed 0%, #fdf2f8 100%);
+  padding: 24px;
+}
+
+.construction-card {
+  width: min(900px, 100%);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(251, 146, 60, 0.2);
+  border-radius: 30px;
+  box-shadow: 0 30px 80px rgba(168, 85, 247, 0.15);
+  padding: 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.construction-card picture {
+  display: block;
+}
+
+.construction-card img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 30px;
+  object-fit: cover;
+}
+
+@media (max-width: 640px) {
+  .construction-page {
+    padding: 0;
+  }
+
+  .construction-card {
+    width: 100%;
+    background: none;
+    backdrop-filter: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .construction-card img {
+    height: 100vh;
+    border-radius: 0;
+    object-fit: contain;
+  }
+}
