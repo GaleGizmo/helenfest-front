@@ -1,4 +1,14 @@
+@font-face {
+  font-family: 'HelenFestFont';
+  src: url('./assets/fonts/HelenFestFont.woff2') format('woff2'),
+    url('./assets/fonts/HelenFestFont.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
+  --font-heading-fallback: 'Segoe UI', sans-serif;
   font-family: Inter, 'Segoe UI', sans-serif;
   line-height: 1.5;
   font-weight: 400;

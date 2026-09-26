@@ -1,0 +1,53 @@
+.tabs-bar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  overflow-x: auto;
+  background: rgba(10, 8, 28, 0.55);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(242, 177, 52, 0.25);
+}
+
+.tab {
+  flex: 1 1 auto;
+  white-space: nowrap;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(242, 177, 52, 0.4);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fdf6ec;
+  font-family: 'HelenFestFont', var(--font-heading-fallback);
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.tab-tickets {
+  background: linear-gradient(135deg, #f2b134, #e2572b);
+  color: #1b1633;
+  border-color: transparent;
+}
+
+.tab:not(:disabled):hover,
+.tab:not(:disabled):focus-visible {
+  transform: translateY(-1px);
+}
+
+.tab:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media (min-width: 480px) {
+  .tabs-bar {
+    justify-content: center;
+  }
+
+  .tab {
+    flex: 0 1 auto;
+  }
+}
