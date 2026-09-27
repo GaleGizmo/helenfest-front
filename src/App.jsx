@@ -16,18 +16,9 @@ function App() {
     setSession(getSession())
   }, [])
 
-  function handleLogin(email) {
-    if (!email) return
-    const newSession = { email }
-    saveSession(newSession)
-    setSession(newSession)
-    setActiveModal(null)
-  }
-
-  function handleRegister(registration) {
-    if (!registration.email || !registration.name) return
-    saveSession(registration)
-    setSession(registration)
+  function handleAuthSuccess(guest) {
+    saveSession(guest)
+    setSession(guest)
     setActiveModal(null)
   }
 
@@ -48,10 +39,10 @@ function App() {
       <Poster />
 
       {activeModal === 'register' && (
-        <RegisterModal onSubmit={handleRegister} onLoginClick={() => setActiveModal('login')} />
+        <RegisterModal onSubmit={handleAuthSuccess} onLoginClick={() => setActiveModal('login')} />
       )}
       {activeModal === 'login' && (
-        <LoginModal onSubmit={handleLogin} onBack={() => setActiveModal('register')} />
+        <LoginModal onSubmit={handleAuthSuccess} onBack={() => setActiveModal('register')} />
       )}
     </main>
   )

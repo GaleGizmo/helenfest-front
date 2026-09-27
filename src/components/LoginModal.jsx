@@ -1,12 +1,24 @@
 import { useState } from 'react'
 import Modal from './Modal'
+import { findGuestByEmail } from '../api/guests'
 
 function LoginModal({ onSubmit, onBack }) {
   const [email, setEmail] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState('')
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault()
-    onSubmit(email.trim())
+    setError('')
+    setIsSubmitting(true)
+    try {
+      const guest = await findGuestByEmail(email.trim())
+      onSubmit(guest)
+    } catch (err) {
+      setError(err.message)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -24,9 +36,10 @@ function LoginModal({ onSubmit, onBack }) {
           value={email}
           onChange={(event) => setEmail(event.target.value)}
         />
-        <button type="submit" className="btn-primary">
-          Entrar
+        <button type="submit" className="btn-primary" disabled={isSubmitting}>
+          {isSubmitting ? 'Comprobando...' : 'Entrar'}
         </button>
+        {error && <p className="form-error">{error}</p>}
       </form>
       <p className="modal-alt-text">
         <button type="button" className="link-button" onClick={onBack}>

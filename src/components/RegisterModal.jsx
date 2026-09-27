@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Modal from './Modal'
+import { registerGuest } from '../api/guests'
 
 function RegisterModal({ onSubmit, onLoginClick }) {
   const [email, setEmail] = useState('')
@@ -8,6 +9,8 @@ function RegisterModal({ onSubmit, onLoginClick }) {
   const [companionName, setCompanionName] = useState('')
   const [withMinor, setWithMinor] = useState(false)
   const [dish, setDish] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState('')
 
   function handleToggleCompanion() {
     setShowCompanion((prev) => {
@@ -16,15 +19,24 @@ function RegisterModal({ onSubmit, onLoginClick }) {
     })
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault()
-    onSubmit({
-      email: email.trim(),
-      name: name.trim(),
-      companionName: showCompanion ? companionName.trim() : '',
-      withMinor,
-      dish: dish.trim(),
-    })
+    setError('')
+    setIsSubmitting(true)
+    try {
+      const guest = await registerGuest({
+        email: email.trim(),
+        name: name.trim(),
+        companionName: showCompanion ? companionName.trim() : undefined,
+        hasChild: withMinor,
+        dish: dish.trim() || undefined,
+      })
+      onSubmit(guest)
+    } catch (err) {
+      setError(err.message)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -97,9 +109,10 @@ function RegisterModal({ onSubmit, onLoginClick }) {
           <small>El bar tiene un límite, tu generosidad no. Si no lo sabes aún, tranquilo.</small>
         </label>
 
-        <button type="submit" className="btn-primary">
-          ¡Reservar mi sitio en la pista!
+        <button type="submit" className="btn-primary" disabled={isSubmitting}>
+          {isSubmitting ? 'Reservando...' : '¡Reservar mi sitio en la pista!'}
         </button>
+        {error && <p className="form-error">{error}</p>}
       </form>
 
       <p className="modal-alt-text">
