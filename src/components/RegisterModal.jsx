@@ -81,7 +81,7 @@ function RegisterModal({ onSubmit, onLoginClick, onClose }) {
         )}
 
         <button type="button" className="link-button toggle-companion" onClick={handleToggleCompanion}>
-          {showCompanion ? 'Quitar acompañante' : 'Vengo acompañado/a (un email, dos entradas)'}
+          {showCompanion ? 'Quitar acompañante' : 'VENGO ACOMPAÑADO/A (UN EMAIL, DOS ENTRADAS)'}
         </button>
 
         <label className="form-field">

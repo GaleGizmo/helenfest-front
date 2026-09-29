@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Toaster } from 'react-hot-toast'
+import toast, { Toaster } from 'react-hot-toast'
 import './App.css'
 import BackgroundMobile from './assets/helenfest_background_mobile.jpg'
 import BackgroundDesktop from './assets/helenfest_background_desktop.jpg'
@@ -27,6 +27,8 @@ function App() {
   function handleTicketsClick() {
     if (!session) {
       setActiveModal('register')
+    } else {
+      toast.error("¡Ya tienes entrada! ¿¿Cuantas más quieres??")
     }
   }
 

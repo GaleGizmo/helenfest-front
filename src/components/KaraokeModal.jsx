@@ -111,11 +111,11 @@ function KaraokeModal({ guest, onSubmitted, onClose }) {
 
         {songs.length < 2 ? (
           <button type="button" className="link-button toggle-companion" onClick={handleAddSong}>
-            Añadir otra canción (para los ambiciosos)
+            AÑADIR OTRA CANCIÓN (PARA LOS AMBICIOSOS)
           </button>
         ) : (
           <button type="button" className="link-button toggle-companion" onClick={handleRemoveSong}>
-            Quitar segunda canción
+            QUITAR SEGUNDA CANCIÓN
           </button>
         )}
 
