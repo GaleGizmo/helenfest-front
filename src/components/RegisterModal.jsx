@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import toast from 'react-hot-toast'
 import Modal from './Modal'
 import { registerGuest } from '../api/guests'
 
@@ -31,6 +32,7 @@ function RegisterModal({ onSubmit, onLoginClick, onClose }) {
         hasChild: withMinor,
         dish: dish.trim() || undefined,
       })
+      toast.success('¡Entrada reservada! Ya estás en la lista de la fiesta 🎉')
       onSubmit(guest)
     } catch (err) {
       setError(err.message)

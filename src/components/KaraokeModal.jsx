@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import toast from 'react-hot-toast'
 import Modal from './Modal'
 import { submitKaraoke } from '../api/karaoke'
 
@@ -37,6 +38,7 @@ function KaraokeModal({ guest, onSubmitted, onClose }) {
         })),
       }
       const entry = await submitKaraoke(payload)
+      toast.success('¡Canciones reservadas! Prepárate para brillar 🎤')
       onSubmitted(entry)
     } catch (err) {
       setError(err.message)

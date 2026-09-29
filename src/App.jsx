@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Toaster } from 'react-hot-toast'
 import './App.css'
 import BackgroundMobile from './assets/helenfest_background_mobile.jpg'
 import BackgroundDesktop from './assets/helenfest_background_desktop.jpg'
@@ -41,6 +42,21 @@ function App() {
         <source media="(min-width: 768px)" srcSet={BackgroundDesktop} />
         <img src={BackgroundMobile} alt="" className="app-background" />
       </picture>
+
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: 'linear-gradient(180deg, rgba(27, 22, 58, 0.96) 0%, rgba(15, 12, 35, 0.98) 100%)',
+            color: '#fdf6ec',
+            border: '1px solid rgba(242, 177, 52, 0.35)',
+            borderRadius: '14px',
+            fontSize: '0.9rem',
+          },
+          success: { iconTheme: { primary: '#f2b134', secondary: '#1b1633' } },
+        }}
+      />
 
       <Tabs isRegistered={Boolean(session)} onTicketsClick={handleTicketsClick} onKaraokeClick={handleKaraokeClick} />
       <Poster />
