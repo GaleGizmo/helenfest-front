@@ -9,6 +9,7 @@ function RegisterModal({ onSubmit, onLoginClick, onClose }) {
   const [showCompanion, setShowCompanion] = useState(false)
   const [companionName, setCompanionName] = useState('')
   const [withMinor, setWithMinor] = useState(false)
+  const [minorName, setMinorName] = useState('')
   const [dish, setDish] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState('')
@@ -30,6 +31,7 @@ function RegisterModal({ onSubmit, onLoginClick, onClose }) {
         name: name.trim(),
         companionName: showCompanion ? companionName.trim() : undefined,
         hasChild: withMinor,
+        minorName: withMinor ? minorName.trim() : undefined,
         dish: dish.trim() || undefined,
       })
       toast.success('¡Entrada reservada! Ya estás en la lista de la fiesta 🎉')
@@ -102,6 +104,18 @@ function RegisterModal({ onSubmit, onLoginClick, onClose }) {
           />
           <span>Venimos con sobri ❤️ </span>
         </label>
+        {withMinor && (
+          <label className="form-field">
+            <span>Nombre del/la sobri</span>
+            <input
+              type="text"
+              required
+              placeholder="Tu peque de confianza"
+              value={minorName}
+              onChange={(event) => setMinorName(event.target.value)}
+            />
+          </label>
+        )}
 
         <label className="form-field">
           <span>Tu aportación culinaria 🍢 </span>
