@@ -22,7 +22,7 @@ function LoginModal({ onSubmit, onBack }) {
   }
 
   return (
-    <Modal>
+    <Modal onClose={onBack}>
       <p className="modal-eyebrow">Bienvenido de nuevo</p>
       <h2 className="modal-title">Inicia sesión</h2>
       <p className="modal-text">

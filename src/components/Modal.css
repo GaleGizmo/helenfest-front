@@ -35,6 +35,23 @@
   font-weight: 400;
 }
 
+.modal-back {
+  display: block;
+  margin: 0 0 12px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #cfc9e8;
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.modal-back:hover,
+.modal-back:focus-visible {
+  color: #f2b134;
+}
+
 .modal-title {
   margin: 0 0 12px;
   font-family: 'HelenFestFont', var(--font-heading-fallback);
@@ -157,6 +174,23 @@
   font-size: 0.9rem;
   color: #fdf6ec;
   cursor: pointer;
+}
+
+.song-fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 14px 14px 16px;
+  border: 1px solid rgba(242, 177, 52, 0.3);
+  border-radius: 14px;
+}
+
+.song-fieldset legend {
+  padding: 0 6px;
+  font-family: 'HelenFestFont', var(--font-heading-fallback);
+  font-size: 1rem;
+  color: #f2b134;
 }
 
 .form-error {

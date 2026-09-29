@@ -5,7 +5,11 @@ const SECONDARY_TABS = [
   { id: 'open-mic', label: 'Micro Abierto' },
 ]
 
-function Tabs({ isRegistered, onTicketsClick }) {
+function Tabs({ isRegistered, onTicketsClick, onKaraokeClick }) {
+  const handlers = {
+    karaoke: onKaraokeClick,
+  }
+
   return (
     <nav className="tabs-bar" aria-label="Secciones de HelenFest">
       <button type="button" className="tab tab-tickets" onClick={onTicketsClick}>
@@ -17,6 +21,7 @@ function Tabs({ isRegistered, onTicketsClick }) {
           type="button"
           className="tab"
           disabled={!isRegistered}
+          onClick={handlers[tab.id]}
           title={!isRegistered ? 'Consigue tu entrada para desbloquear esta sección' : undefined}
         >
           {tab.label}

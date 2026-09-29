@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Modal from './Modal'
 import { registerGuest } from '../api/guests'
 
-function RegisterModal({ onSubmit, onLoginClick }) {
+function RegisterModal({ onSubmit, onLoginClick, onClose }) {
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
   const [showCompanion, setShowCompanion] = useState(false)
@@ -40,7 +40,10 @@ function RegisterModal({ onSubmit, onLoginClick }) {
   }
 
   return (
-    <Modal>
+    <Modal onClose={onClose}>
+      <button type="button" className="modal-back" onClick={onClose}>
+        ← Volver
+      </button>
       <p className="modal-eyebrow">Acreditación de festivalero</p>
       <h2 className="modal-title">¡Consigue tu pase!</h2>
       <p className="modal-text">
@@ -95,7 +98,7 @@ function RegisterModal({ onSubmit, onLoginClick }) {
             checked={withMinor}
             onChange={(event) => setWithMinor(event.target.checked)}
           />
-          <span>Venimos con algún menor a bordo 🧒</span>
+          <span>Venimos con sobri ❤️ </span>
         </label>
 
         <label className="form-field">

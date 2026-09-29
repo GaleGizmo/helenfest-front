@@ -6,6 +6,7 @@ import Tabs from './components/Tabs'
 import Poster from './components/Poster'
 import LoginModal from './components/LoginModal'
 import RegisterModal from './components/RegisterModal'
+import KaraokeModal from './components/KaraokeModal'
 import { getSession, saveSession } from './hooks/useSession'
 
 function App() {
@@ -28,6 +29,12 @@ function App() {
     }
   }
 
+  function handleKaraokeClick() {
+    if (session) {
+      setActiveModal('karaoke')
+    }
+  }
+
   return (
     <main className="app-shell">
       <picture>
@@ -35,14 +42,25 @@ function App() {
         <img src={BackgroundMobile} alt="" className="app-background" />
       </picture>
 
-      <Tabs isRegistered={Boolean(session)} onTicketsClick={handleTicketsClick} />
+      <Tabs isRegistered={Boolean(session)} onTicketsClick={handleTicketsClick} onKaraokeClick={handleKaraokeClick} />
       <Poster />
 
       {activeModal === 'register' && (
-        <RegisterModal onSubmit={handleAuthSuccess} onLoginClick={() => setActiveModal('login')} />
+        <RegisterModal
+          onSubmit={handleAuthSuccess}
+          onLoginClick={() => setActiveModal('login')}
+          onClose={() => setActiveModal(null)}
+        />
       )}
       {activeModal === 'login' && (
         <LoginModal onSubmit={handleAuthSuccess} onBack={() => setActiveModal('register')} />
+      )}
+      {activeModal === 'karaoke' && (
+        <KaraokeModal
+          guest={session}
+          onSubmitted={() => setActiveModal(null)}
+          onClose={() => setActiveModal(null)}
+        />
       )}
     </main>
   )
