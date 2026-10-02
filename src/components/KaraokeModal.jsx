@@ -95,7 +95,7 @@ function KaraokeModal({ guest, onSubmitted, onClose }) {
                 value={song.link}
                 onChange={(event) => updateSong(index, 'link', event.target.value)}
               />
-              <small>Como sepas cuál es, todos te lo agradeceremos.</small>
+              <small>Si lo incluyes, nos facilitas la vida.</small>
             </label>
 
             <label className="form-checkbox">

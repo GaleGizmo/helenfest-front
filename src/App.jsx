@@ -8,6 +8,7 @@ import Poster from './components/Poster'
 import LoginModal from './components/LoginModal'
 import RegisterModal from './components/RegisterModal'
 import KaraokeModal from './components/KaraokeModal'
+import MediaModal from './components/MediaModal'
 import { getSession, saveSession } from './hooks/useSession'
 
 function App() {
@@ -38,6 +39,12 @@ function App() {
     }
   }
 
+  function handleMediaClick() {
+    if (session) {
+      setActiveModal('media')
+    }
+  }
+
   return (
     <main className="app-shell">
       <picture>
@@ -60,7 +67,12 @@ function App() {
         }}
       />
 
-      <Tabs isRegistered={Boolean(session)} onTicketsClick={handleTicketsClick} onKaraokeClick={handleKaraokeClick} />
+      <Tabs
+        isRegistered={Boolean(session)}
+        onTicketsClick={handleTicketsClick}
+        onKaraokeClick={handleKaraokeClick}
+        onMediaClick={handleMediaClick}
+      />
       <Poster />
 
       {activeModal === 'register' && (
@@ -79,6 +91,9 @@ function App() {
           onSubmitted={() => setActiveModal(null)}
           onClose={() => setActiveModal(null)}
         />
+      )}
+      {activeModal === 'media' && (
+        <MediaModal guest={session} onClose={() => setActiveModal(null)} />
       )}
     </main>
   )

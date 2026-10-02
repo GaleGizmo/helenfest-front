@@ -2,12 +2,13 @@ import './Tabs.css'
 
 const SECONDARY_TABS = [
   { id: 'karaoke', label: 'Karaoke' },
-  { id: 'open-mic', label: 'Micro Abierto' },
+  { id: 'media', label: 'Multimedia' },
 ]
 
-function Tabs({ isRegistered, onTicketsClick, onKaraokeClick }) {
+function Tabs({ isRegistered, onTicketsClick, onKaraokeClick, onMediaClick }) {
   const handlers = {
     karaoke: onKaraokeClick,
+    media: onMediaClick,
   }
 
   return (
