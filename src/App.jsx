@@ -73,7 +73,7 @@ function App() {
         onKaraokeClick={handleKaraokeClick}
         onMediaClick={handleMediaClick}
       />
-      <Poster />
+      {!activeModal && <Poster />}
 
       {activeModal === 'register' && (
         <RegisterModal

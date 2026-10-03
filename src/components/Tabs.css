@@ -42,6 +42,19 @@
   cursor: not-allowed;
 }
 
+@media (max-width: 400px) {
+  .tabs-bar {
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .tab {
+    padding: 9px 9px;
+    font-size: 0.82rem;
+    letter-spacing: 0;
+  }
+}
+
 @media (min-width: 480px) {
   .tabs-bar {
     justify-content: center;

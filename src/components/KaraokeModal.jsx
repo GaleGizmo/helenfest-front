@@ -55,7 +55,7 @@ function KaraokeModal({ guest, onSubmitted, onClose }) {
       <p className="modal-eyebrow">Reserva tu momento de gloria</p>
       <h2 className="modal-title">¡A por el micro!</h2>
       <p className="modal-text">
-        Vas a cantar, no hay marcha atrás. Elige hasta 2 canciones y deja el
+        ¡Sí, sí, vas a cantar, no hay marcha atrás! Dinos una o dos canciones que quieres que tengamos preparadas y deja el
         listón (o el ridículo) bien alto.
       </p>
 
@@ -104,7 +104,7 @@ function KaraokeModal({ guest, onSubmitted, onClose }) {
                 checked={song.duetWithHost}
                 onChange={(event) => updateSong(index, 'duetWithHost', event.target.checked)}
               />
-              <span>Quiero que Helen suba a cantar conmigo 🎤👯</span>
+              <span>Quiero que Helen cante conmigo 🎤👯</span>
             </label>
           </fieldset>
         ))}

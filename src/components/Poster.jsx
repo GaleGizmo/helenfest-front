@@ -1,38 +1,21 @@
 import './Poster.css'
 
-const LINEUP = [
-  { name: 'Ramona y Albino', role: 'Actuación estelar', size: 'headliner' },
-  { name: 'Plan B', role: 'Concierto', size: 'support' },
-  { name: 'Micro Abierto', role: 'Participa tú', size: 'minor' },
-  { name: 'Sesión Karaoke', role: 'Hasta el amanecer', size: 'minor' },
-]
+const POSTER_ALT =
+  'Cartel de HelenFest, 33 aniversario, 25 de octubre de 2026 en O Marquiño. ' +
+  '12:00 apertura de puertas. 13:00 primer concierto del dúo Ramona y Albino, con la colaboración de Plan B. ' +
+  '14:30 bingo musical. 16:00 karaoke. Adquiere ya tu entrada.'
 
 function Poster() {
   return (
     <section className="poster" aria-label="Cartel de HelenFest">
-      <p className="poster-presents">
-        La Comisión de Fiestas de HelenFest presenta:
-      </p>
-
-      <h1 className="poster-title">HELENFEST</h1>
-      <p className="poster-subtitle">Grandes Fiestas Populares</p>
-
-      <div className="poster-divider" aria-hidden="true">✦ ✦ ✦</div>
-
-      <ol className="poster-lineup">
-        {LINEUP.map((act) => (
-          <li key={act.name} className={`poster-act poster-act--${act.size}`}>
-            <span className="poster-act-name">{act.name}</span>
-            <span className="poster-act-role">{act.role}</span>
-          </li>
-        ))}
-      </ol>
-
-      <div className="poster-divider" aria-hidden="true">✦ ✦ ✦</div>
-
-      <p className="poster-footer">
-        Entrada gratuita · Aforo limitado · No apto para aguafiestas
-      </p>
+      <img
+        className="poster-image"
+        src="/cartel_helenfest_produccion.jpg"
+        alt={POSTER_ALT}
+        width="1190"
+        height="1682"
+        fetchPriority="high"
+      />
     </section>
   )
 }

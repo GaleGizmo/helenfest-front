@@ -1,104 +1,31 @@
 .poster {
+  --tabs-height: 70px;
+  --poster-gap: 16px;
+
   position: relative;
   z-index: 1;
-  width: min(480px, 92vw);
-  margin: 16px auto 28px;
-  padding: 28px 20px 24px;
-  border-radius: 18px;
-  border: 3px solid #f2b134;
-  outline: 1px solid rgba(253, 246, 236, 0.5);
-  outline-offset: -8px;
-  background:
-    radial-gradient(circle at 50% 15%, rgba(242, 177, 52, 0.25), transparent 55%),
-    linear-gradient(180deg, rgba(20, 17, 46, 0.92) 0%, rgba(12, 10, 28, 0.95) 100%);
-  color: #fdf6ec;
-  text-align: center;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-  min-height: calc(100vh - 140px);
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  gap: 14px;
+  padding: var(--poster-gap);
 }
 
-.poster-presents {
-  margin: 0;
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #cfc9e8;
+/* El cartel mide 1190x1682: no se amplía por encima de su tamaño real para evitar que se vea borroso. */
+.poster-image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(100%, 1190px);
+  max-height: calc(100dvh - var(--tabs-height) - var(--poster-gap) * 2);
+  border: 6px solid #eecd2f;
+  border-radius: 16px;
+  box-shadow:
+    0 0 12px rgba(190, 75, 255, 0.35),
+    0 8px 28px rgba(0, 0, 0, 0.45);
 }
 
-.poster-title {
-  margin: 4px 0 0;
-  font-family: 'HelenFestFont', var(--font-heading-fallback);
-  font-size: clamp(3rem, 16vw, 5rem);
-  line-height: 0.9;
-  color: #f2b134;
-  text-shadow: 0 0 18px rgba(242, 177, 52, 0.45), 3px 3px 0 #e2572b;
-  letter-spacing: 0.04em;
-}
-
-.poster-subtitle {
-  margin: 0;
-  font-family: 'HelenFestFont', var(--font-heading-fallback);
-  font-size: 1.1rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #e84f8a;
-}
-
-.poster-divider {
-  color: #2ec4c0;
-  font-size: 0.9rem;
-  letter-spacing: 0.6em;
-  padding-left: 0.6em;
-}
-
-.poster-lineup {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.poster-act {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.poster-act-name {
-  font-family: 'HelenFestFont', var(--font-heading-fallback);
-}
-
-.poster-act-role {
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #a8a1cf;
-}
-
-.poster-act--headliner .poster-act-name {
-  font-size: clamp(1.8rem, 8vw, 2.6rem);
-  color: #f2b134;
-}
-
-.poster-act--support .poster-act-name {
-  font-size: clamp(1.3rem, 6vw, 1.8rem);
-  color: #e84f8a;
-}
-
-.poster-act--minor .poster-act-name {
-  font-size: 1.05rem;
-  color: #2ec4c0;
-}
-
-.poster-footer {
-  margin: 8px 0 0;
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
-  color: #cfc9e8;
+/* En pantallas bajas (móvil en horizontal) se ajusta al ancho y se hace scroll, en vez de encogerse. */
+@media (max-height: 520px) {
+  .poster-image {
+    max-height: none;
+  }
 }
