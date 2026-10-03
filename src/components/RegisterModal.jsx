@@ -6,7 +6,6 @@ import { registerGuest } from '../api/guests'
 function RegisterModal({ onSubmit, onLoginClick, onClose }) {
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
-  const [showCompanion, setShowCompanion] = useState(false)
   const [companionName, setCompanionName] = useState('')
   const [withMinor, setWithMinor] = useState(false)
   const [minorName, setMinorName] = useState('')
@@ -29,7 +28,6 @@ function RegisterModal({ onSubmit, onLoginClick, onClose }) {
       const guest = await registerGuest({
         email: email.trim(),
         name: name.trim(),
-        companionName: showCompanion ? companionName.trim() : undefined,
         hasChild: withMinor,
         minorName: withMinor ? minorName.trim() : undefined,
         dish: dish.trim() || undefined,
@@ -67,23 +65,6 @@ function RegisterModal({ onSubmit, onLoginClick, onClose }) {
           />
         </label>
 
-        {showCompanion && (
-          <label className="form-field">
-            <span>Nombre de tu acompañante</span>
-            <input
-              type="text"
-              required
-              placeholder="Tu cómplice de fiesta"
-              value={companionName}
-              onChange={(event) => setCompanionName(event.target.value)}
-            />
-          </label>
-        )}
-
-        <button type="button" className="link-button toggle-companion" onClick={handleToggleCompanion}>
-          {showCompanion ? 'Quitar acompañante' : 'VENGO ACOMPAÑADO/A (UN EMAIL, DOS ENTRADAS)'}
-        </button>
-
         <label className="form-field">
           <span>Email de contacto</span>
           <input
@@ -102,11 +83,11 @@ function RegisterModal({ onSubmit, onLoginClick, onClose }) {
             checked={withMinor}
             onChange={(event) => setWithMinor(event.target.checked)}
           />
-          <span>Venimos con sobri ❤️ </span>
+          <span>Vengo con sobri ❤️ </span>
         </label>
         {withMinor && (
           <label className="form-field">
-            <span>Nombre del/la sobri</span>
+            <span>Nombre sobri</span>
             <input
               type="text"
               required
@@ -121,11 +102,12 @@ function RegisterModal({ onSubmit, onLoginClick, onClose }) {
           <span>Tu aportación culinaria 🍢 </span>
           <input
             type="text"
+            required
             placeholder="Ej: mi tortilla legendaria"
             value={dish}
             onChange={(event) => setDish(event.target.value)}
           />
-          <small>El bar tiene un límite, tu generosidad no. Si no lo sabes aún, tranquilo.</small>
+          <small>El bar tiene un límite, tu generosidad no.</small>
         </label>
 
         <button type="submit" className="btn-primary" disabled={isSubmitting}>
@@ -135,9 +117,9 @@ function RegisterModal({ onSubmit, onLoginClick, onClose }) {
       </form>
 
       <p className="modal-alt-text">
-        Ya estoy registrado, quiero{' '}
+        Ya tengo entrada, quiero{' '}
         <button type="button" className="link-button" onClick={onLoginClick}>
-          entrar
+          acceder
         </button>
       </p>
     </Modal>
