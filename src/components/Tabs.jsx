@@ -22,7 +22,7 @@ function Tabs({ isRegistered, onTicketsClick, onKaraokeClick, onMediaClick }) {
         className="tab tab-tickets"
         onClick={onTicketsClick}
       >
-        🎟️ Comprar entradas
+        🎟️ Entradas
       </button>
 
       <button

@@ -1,10 +1,12 @@
 .poster {
-  --tabs-height: 70px;
   --poster-gap: 16px;
 
   position: relative;
   z-index: 1;
   display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+  align-items: center;
   justify-content: center;
   padding: var(--poster-gap);
 }
@@ -15,7 +17,7 @@
   width: auto;
   height: auto;
   max-width: min(100%, 1190px);
-  max-height: calc(100dvh - var(--tabs-height) - var(--poster-gap) * 2);
+  max-height: 100%;
   border: 6px solid #eecd2f;
   border-radius: 16px;
   box-shadow:
@@ -25,6 +27,10 @@
 
 /* En pantallas bajas (móvil en horizontal) se ajusta al ancho y se hace scroll, en vez de encogerse. */
 @media (max-height: 520px) {
+  .poster {
+    flex: none;
+  }
+
   .poster-image {
     max-height: none;
   }

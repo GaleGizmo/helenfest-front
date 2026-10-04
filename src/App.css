@@ -1,6 +1,16 @@
 .app-shell {
   position: relative;
-  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+}
+
+/* En pantallas bajas (móvil en horizontal) la página crece y se hace scroll en vez de encoger el cartel. */
+@media (max-height: 520px) {
+  .app-shell {
+    height: auto;
+    min-height: 100dvh;
+  }
 }
 
 .app-background {
