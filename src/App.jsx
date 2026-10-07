@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import SoldOutModal from './components/SoldOutModal'
 import toast, { Toaster } from 'react-hot-toast'
 import './App.css'
 import BackgroundMobile from './assets/helenfest_background_mobile.jpg'
@@ -27,7 +28,8 @@ function App() {
 
   function handleTicketsClick() {
     if (!session) {
-      setActiveModal('register')
+      // setActiveModal('register')
+      setActiveModal('soldout')
     } else {
       toast.error("¡Ya tienes entrada! ¿¿Cuantas más quieres??")
     }
@@ -91,6 +93,9 @@ function App() {
           onSubmitted={() => setActiveModal(null)}
           onClose={() => setActiveModal(null)}
         />
+      )}
+      {activeModal === 'soldout' && (
+        <SoldOutModal onClose={() => setActiveModal(null)} />
       )}
       {activeModal === 'media' && (
         <MediaModal guest={session} onClose={() => setActiveModal(null)} />
