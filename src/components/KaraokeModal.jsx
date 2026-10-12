@@ -104,7 +104,7 @@ function KaraokeModal({ guest, onSubmitted, onClose }) {
                 checked={song.duetWithHost}
                 onChange={(event) => updateSong(index, 'duetWithHost', event.target.checked)}
               />
-              <span>Quiero que Helen cante conmigo 🎤👯</span>
+              <span>Quiero que Helen cante conmigo (quien dice cantar dice APORTARRR) 🎤👯</span>
             </label>
           </fieldset>
         ))}

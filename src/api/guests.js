@@ -8,5 +8,5 @@ export function registerGuest(payload) {
 }
 
 export function findGuestByEmail(email) {
-  return request(`/api/guests/${encodeURIComponent(email)}`)
+  return request(`/api/guests/getGuest/${encodeURIComponent(email)}`)
 }
