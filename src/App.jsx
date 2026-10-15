@@ -28,8 +28,8 @@ function App() {
 
   function handleTicketsClick() {
     if (!session) {
-      // setActiveModal('register')
-      setActiveModal('soldout')
+      setActiveModal('register')
+      // setActiveModal('soldout')
     } else {
       toast.error("¡Ya tienes entrada! ¿¿Cuantas más quieres??")
     }
