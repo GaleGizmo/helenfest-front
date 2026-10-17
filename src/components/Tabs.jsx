@@ -43,7 +43,7 @@ function Tabs({ isRegistered, onTicketsClick, onKaraokeClick, onMediaClick }) {
         key={SECONDARY_TABS[1].id}
         type="button"
         className="tab"
-        disabled={!isMultimediaAvailable}
+        disabled={!isRegistered}
         onClick={handlers[SECONDARY_TABS[1].id]}
         title={
           !isRegistered
